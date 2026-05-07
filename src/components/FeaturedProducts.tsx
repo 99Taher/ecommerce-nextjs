@@ -36,6 +36,7 @@ export function FeaturedProducts() {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      {undefined.map(item => <div key={item.id}>{item.name}</div>)}
     </section>
   )
 }
