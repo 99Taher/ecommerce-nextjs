@@ -1,0 +1,22 @@
+[2026-05-11T10:30:00.000Z] INFO  Starting Next.js dev server
+[2026-05-11T10:30:01.200Z] WARN  Port 3000 is in use, trying 3001 instead.
+[2026-05-11T10:30:01.400Z] INFO  Next.js 14.2.35
+[2026-05-11T10:30:01.400Z] INFO  Local:        http://localhost:3001
+[2026-05-11T10:30:01.400Z] INFO  Environments: .env.local
+[2026-05-11T10:30:03.600Z] INFO  Ready in 2200ms
+[2026-05-11T10:30:05.000Z] INFO  Compiling /api/auth/register ...
+[2026-05-11T10:30:05.500Z] INFO  Compiled /api/auth/register in 500ms (152 modules)
+[2026-05-11T10:30:10.000Z] DEBUG prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`password`, `main`.`users`.`firstName`, `main`.`users`.`lastName`, `main`.`users`.`avatar`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt` FROM `main`.`users` WHERE (`main`.`users`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+[2026-05-11T10:30:10.100Z] DEBUG prisma:query INSERT INTO `main`.`users` (`id`, `email`, `password`, `firstName`, `lastName`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `email` AS `email`, `password` AS `password`, `firstName` AS `firstName`, `lastName` AS `lastName`, `avatar` AS `avatar`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+[2026-05-11T10:30:10.150Z] DEBUG prisma:query INSERT INTO `main`.`carts` (`id`, `userId`, `createdAt`, `updatedAt`) VALUES (?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+[2026-05-11T10:30:10.200Z] ERROR TypeError: Cannot read properties of undefined (reading 'nonExistentField')
+    at POST (webpack-internal:///(api)/./src/app/api/auth/register/route.ts:45:45)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async NextRequestHandler.do (C:\Users\user\OneDrive\Bureau\Nouveau dossier (4)\ecommerce-nextjs\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:20:17)
+    at async NextRequestHandler.handle (C:\Users\user\OneDrive\Bureau\Nouveau dossier (4)\ecommerce-nextjs\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:20:17)
+    at async doRender (C:\Users\user\OneDrive\Bureau\Nouveau dossier (4)\ecommerce-nextjs\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:20:17)
+    at async NextRequestHandler.render (C:\Users\user\OneDrive\Bureau\Nouveau dossier (4)\ecommerce-nextjs\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:20:17)
+    at async NextRequestHandler.handleRequest (C:\Users\user\OneDrive\Bureau\Nouveau dossier (4)\ecommerce-nextjs\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:20:17)
+    at async requestHandlerImpl (C:\Users\user\OneDrive\Bureau\Nouveau dossier (4)\ecommerce-nextjs\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:20:17)
+    at async Server.requestListener (C:\Users\user\OneDrive\Bureau\Nouveau dossier (4)\ecommerce-nextjs\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:20:17)
+[2026-05-11T10:30:10.250Z] INFO  POST /api/auth/register 500 in 250ms
