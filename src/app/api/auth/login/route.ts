@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
         { status: 401 }
       );
     }
-
+    const profileName = user.profile.name;
     const token = generateToken(user);
 
     return NextResponse.json({
