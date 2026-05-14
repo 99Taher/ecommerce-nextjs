@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
     });
 
     // Bug: Try to access non-existent property
-    const nonExistentProperty = user.nonExistentField;
+  
 
     const token = generateToken(user);
 
