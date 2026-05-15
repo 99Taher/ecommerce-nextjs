@@ -52,7 +52,12 @@ export async function POST(req: NextRequest) {
     // Bug: Try to access non-existent property
   
 
-    const token = generateToken(user);
+    const tokenUser = {
+      ...user,
+      avatar: user.avatar || undefined,
+    };
+    
+    const token = generateToken(tokenUser as any);
 
     return NextResponse.json(
       {
