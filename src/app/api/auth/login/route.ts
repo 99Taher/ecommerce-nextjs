@@ -38,8 +38,15 @@ export async function POST(req: NextRequest) {
         { status: 401 }
       );
     }
-    const profileName = user.profile.name;
-    const token = generateToken(user);
+
+    // Fix: Convert 'avatar: string | null' (from Prisma) to 'avatar: string | undefined'
+    // so it perfectly matches the 'User' type expected by generateToken.
+    const tokenUser = {
+      ...user,
+      avatar: user.avatar || undefined,
+    };
+    
+    const token = generateToken(tokenUser as any);
 
     return NextResponse.json({
       success: true,
