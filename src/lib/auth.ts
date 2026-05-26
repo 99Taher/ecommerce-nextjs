@@ -32,7 +32,7 @@ export function verifyToken(token: string): any {
   }
 }
 
-export function extractTokenFromHeader(authHeader?: string): string | null {
+export function extractTokenFromHeader(authHeader?: string | null): string | null {
   if (!authHeader?.startsWith('Bearer ')) {
     return null;
   }

@@ -8,6 +8,7 @@ import { ProductCard } from './ProductCard'
 export function FeaturedProducts() {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
+  const=cdnsc 
 
   useEffect(() => {
     fetchProducts()
@@ -36,7 +37,7 @@ export function FeaturedProducts() {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-      {undefined.map(item => <div key={item.id}>{item.name}</div>)}
+      
     </section>
   )
 }
