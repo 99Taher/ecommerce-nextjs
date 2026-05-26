@@ -30,23 +30,11 @@ export async function GET(req: NextRequest) {
       },
     });
 
-    const firstItemName = cart?.items?.[0]?.product?.name;
-
-    if (!firstItemName) {
-      throw new Error('Intentional cart bug: missing first item name');
-    }
-
     return NextResponse.json({
       success: true,
-      data: {
-        firstItemName,
-      },
+      data: cart,
     });
   } catch (error) {
-    console.error(
-      `[ERROR] GET /api/cart - ${error instanceof Error ? error.message : 'Unknown error'}`
-    );
-
     return NextResponse.json(
       { success: false, error: 'Failed to fetch cart' },
       { status: 500 }

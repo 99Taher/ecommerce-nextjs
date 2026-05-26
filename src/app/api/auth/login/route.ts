@@ -46,6 +46,8 @@ export async function POST(req: NextRequest) {
       createdAt: user.createdAt,
     };
 
+    throw new Error('Intentional login bug: forced token generation failure');
+
     const token = generateToken(tokenUser);
 
     return NextResponse.json({
@@ -59,6 +61,10 @@ export async function POST(req: NextRequest) {
       },
     });
   } catch (error) {
+    console.error(
+      `[ERROR] POST /api/auth/login - ${error instanceof Error ? error.message : 'Unknown error'}`
+    );
+
     return NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
