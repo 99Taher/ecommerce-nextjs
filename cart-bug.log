@@ -1,0 +1,17 @@
+Bug reproduction log for GET /api/cart
+====================================
+
+Trigger:
+- Request: GET /api/cart
+- Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtb3ZscGU1dDAwMDBtdTJmbDliNjhhYjgiLCJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJpYXQiOjE3Nzk3ODY1OTEsImV4cCI6MTc4MDM5MTM5MX0.csB340DCV-mfjtWX23IeYw0x2-ejkNojatwt3TRjsMI
+
+Observed HTTP response:
+- Status: 500 Internal Server Error
+- Body: {"success":false,"error":"Failed to fetch cart"}
+
+Server log:
+[ERROR] GET /api/cart - Intentional cart bug: missing first item name
+
+Cause:
+- The cart exists, but no cart items are present.
+- GET /api/cart now throws an intentional error when the first item name is missing.

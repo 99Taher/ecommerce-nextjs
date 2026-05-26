@@ -17,7 +17,6 @@ export async function POST(req: NextRequest) {
 
     const { email, password } = validation.data;
 
-    // Find user
     const user = await prisma.user.findUnique({
       where: { email },
     });
@@ -29,7 +28,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Verify password
     const isValid = await verifyPassword(password, user.password);
 
     if (!isValid) {
@@ -39,14 +37,16 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Fix: Convert 'avatar: string | null' (from Prisma) to 'avatar: string | undefined'
-    // so it perfectly matches the 'User' type expected by generateToken.
     const tokenUser = {
-      ...user,
-      avatar: user.avatar || undefined,
+      id: user.id,
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      avatar: user.avatar ?? undefined,
+      createdAt: user.createdAt,
     };
-    
-    const token = generateToken(tokenUser as any);
+
+    const token = generateToken(tokenUser);
 
     return NextResponse.json({
       success: true,
