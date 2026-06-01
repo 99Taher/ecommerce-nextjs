@@ -8,7 +8,7 @@ import { ProductCard } from './ProductCard'
 export function FeaturedProducts() {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
-  const=cdnsc 
+  
 
   useEffect(() => {
     fetchProducts()

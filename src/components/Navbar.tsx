@@ -8,6 +8,7 @@ export function Navbar() {
   const router = useRouter()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userName, setUserName] = useState('')
+  conshtdyehdhfd
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -16,6 +17,7 @@ export function Navbar() {
       setIsLoggedIn(true)
       const userData = JSON.parse(user)
       setUserName(userData.firstName)
+      dhdbfcds
     }
   }, [])
 
