@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { Product } from '@/types'
+vdsvvcxvds
 
 export function ProductCard({ product }: { product: Product }) {
   const [adding, setAdding] = useState(false)
@@ -15,6 +16,7 @@ export function ProductCard({ product }: { product: Product }) {
       if (!token) {
         alert('Please login to add items to cart')
         return
+        vsvdc
       }
 
       await axios.post(

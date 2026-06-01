@@ -12,6 +12,7 @@ export function Hero() {
           Start Shopping
         </Link>
       </div>
+      
     </section>
   )
 }
